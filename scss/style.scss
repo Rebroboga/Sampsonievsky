@@ -57,7 +57,7 @@ body {
     height: 2px;
     border-radius: 2px;
     background-color: $accent;
-    transition-duration: .25s;
+    transition-duration: .35s;
   }
   & > span::before {
     content: '';
@@ -76,14 +76,42 @@ body {
   top: 0;
   left: -100%;
   width: 100%;
-  height: 100%;
+  height: 82vh;
   margin: 0;
   background-color: #fff;
-  padding: 80px 0;
+  padding: 112px 0 19px;
   list-style: none;
   border-radius: 10px;
   box-shadow: 1px 0px 6px rgba(0, 0, 0, .2);
-  transition-duration: .25s;
+  transition-duration: .35s;
+  &__bottom {
+    visibility: hidden;
+    transition: visibility .15s cubic-bezier(0, -1.65, .5, -3.31);
+  }
+}
+
+.menu__time {
+  position: absolute;
+  bottom: 20%;
+  left: 10%;
+  font-weight: 600;
+}
+
+.social__links {
+  position: absolute;
+  bottom: 20%;
+  right: 5%;
+}
+
+.social__list {
+  margin: 0;
+  display: flex;
+  list-style: none;
+  align-items: center;
+}
+
+.social__item:not(:last-child) {
+  margin-right: 5px;
 }
 
 #menu-toggle {
@@ -91,13 +119,23 @@ body {
 }
 
 .menu__item {
-  display: block;
-  padding: 0 37px;
+  display: inline-block;
+  position: relative;
+  margin: 0 37px;
   color: #000;
   font-size: 16px;
   text-decoration: none;
   font-weight: 400;
-  transition-duration: .25s;
+  transition-duration: .35s;
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 80vw;
+    height: .5px;
+    background-color: rgba(0, 0, 0, 0.20);;
+  }
 }
 
 .menu__list-item:not(:last-child) {
@@ -106,6 +144,8 @@ body {
 
 #menu-toggle:checked ~ .menu-btn > span{
   transform: rotate(45deg);
+  margin-left: 26px;
+  transition: margin .5s ease-in-out;
 }
 
 #menu-toggle:checked ~ .menu-btn > span::before{
@@ -118,9 +158,13 @@ body {
   transform: rotate(90deg);
 }
 
-#menu-toggle:checked ~ .menubox{
+#menu-toggle:checked ~ .menubox {
   visibility: visible;
   left: 0;
+}
+
+#menu-toggle:checked ~ .menubox__bottom {
+  visibility: visible;
 }
 
 .header__bottom-link {
